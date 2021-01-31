@@ -1,11 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
+
+import { Button, Text } from "react-native-elements";
+
+import Spacer from "../components/Spacer";
+
+import { Context as AuthContext } from "../context/AuthContext";
 
 const AccountScreen = () => {
-  return <Text>Account Screen</Text>;
+  const { signout } = useContext(AuthContext);
+
+  return (
+    <View style={styles.container}>
+      <Text h1>Account Screen</Text>
+
+      <Spacer />
+
+      <Spacer>
+        <Button onPress={signout} title="Sign Out"></Button>
+      </Spacer>
+    </View>
+  );
 };
 
-const styles = StyleSheet.create({});
+AccountScreen.navigationOptions = () => {
+  return { headerShown: false };
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-start",
+    paddingTop: "30%",
+  },
+});
 
 export default AccountScreen;
