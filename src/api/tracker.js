@@ -3,7 +3,7 @@ import { AsyncStorage } from "react-native";
 
 const instance = axios.create({
   //ngrok URL expires every 8 hours
-  baseURL: "http://abcace981bf7.ngrok.io",
+  baseURL: "http://5d05861b56e8.ngrok.io",
 });
 
 instance.interceptors.request.use(
