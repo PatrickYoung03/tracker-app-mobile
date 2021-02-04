@@ -16,7 +16,19 @@ import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { Provider as LocationProvider } from "./src/context/LocationContext";
 import { Provider as TrackProvider } from "./src/context/TrackContext";
 
+import { FontAwesome } from "@expo/vector-icons";
+
 import { setNavigator } from "./src/navigationRef";
+
+const tlFlow = createStackNavigator({
+  TrackList: TrackListScreen,
+  TrackDetail: TrackDetailScreen,
+});
+
+tlFlow.navigationOptions = {
+  title: "Track List",
+  tabBarIcon: <FontAwesome name="th-list" size={20} />,
+};
 
 const switchNavigator = createSwitchNavigator({
   LoadingScreen: LoadingScreen,
@@ -25,10 +37,7 @@ const switchNavigator = createSwitchNavigator({
     signin: SigninScreen,
   }),
   mainFlow: createBottomTabNavigator({
-    trackListFlow: createStackNavigator({
-      TrackList: TrackListScreen,
-      TrackDetail: TrackDetailScreen,
-    }),
+    trackListFlow: tlFlow,
     TrackCreate: TrackCreateScreen,
     Account: AccountScreen,
   }),

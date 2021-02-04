@@ -35,6 +35,10 @@ const TrackListScreen = ({ navigation }) => {
   );
 };
 
+TrackListScreen.navigationOptions = {
+  title: "Tracks",
+};
+
 const styles = StyleSheet.create({});
 
 export default TrackListScreen;

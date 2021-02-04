@@ -5,6 +5,7 @@ import { View, StyleSheet } from "react-native";
 import { Button, Text } from "react-native-elements";
 
 import Spacer from "../components/Spacer";
+import { FontAwesome } from "@expo/vector-icons";
 
 import { Context as AuthContext } from "../context/AuthContext";
 
@@ -25,7 +26,10 @@ const AccountScreen = () => {
 };
 
 AccountScreen.navigationOptions = () => {
-  return { headerShown: false };
+  return {
+    headerShown: false,
+    tabBarIcon: <FontAwesome name="gear" size={20} />,
+  };
 };
 
 const styles = StyleSheet.create({
